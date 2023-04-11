@@ -45,6 +45,7 @@ export class ModoEstudioComponent implements OnInit {
   public SimulacionesInconclusas=0;
   public CantMEstudio=0;
   public ListaEstudio:any;
+  public ListaLogo: any = []
   public TiempoTotalEstudio=0;
   public Hora=0;
   public Minuto=0;
@@ -64,6 +65,7 @@ export class ModoEstudioComponent implements OnInit {
     this.ListaExamenesIncompletos();
     this.ListaExamenesConcluidos();
     this.ObtenerPromedioDominioPorModo();
+    this.ObtenerLogo();
   }
 
   RegistrarExamen(){
@@ -74,6 +76,7 @@ export class ModoEstudioComponent implements OnInit {
       this.RegistrarExamenEnvio.nombreExamen=this.userForm.get('NombreSimulacion')?.value;
       this.RegistrarExamenEnvio.tiempo=0,
       this.RegistrarExamenEnvio.idSimuladorAdsaDominio=this.DominioSeleccionado;
+      console.log(this.RegistrarExamenEnvio)
       this._ExamenService.Registrar(this.RegistrarExamenEnvio).subscribe({
         next:(x)=>{
           this.IdExamen=x.id
@@ -86,10 +89,23 @@ export class ModoEstudioComponent implements OnInit {
     this._DominioService.ListaDominioCombo().subscribe({
       next:(x)=>{
         this.Dominio=x;
+        console.log(this.Dominio)
       }
     })
-
   }
+
+  ObtenerLogo(){
+    this._DominioService.ObtenerLogo().subscribe({
+      next:(x)=>{
+        this.ListaLogo = x;
+        console.log(this.ListaLogo)
+      }
+    })
+  }
+
+
+
+
   ListaExamenesPorModo(){
     this.TiempoTotalEstudio=0;
     this.SimulacionesInconclusas=0;
@@ -140,4 +156,6 @@ export class ModoEstudioComponent implements OnInit {
       }
     })
   }
+
+
 }

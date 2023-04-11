@@ -99,91 +99,32 @@
                 Selecciona la habilidad que deseas estudiar:
               </div>
               <div class="row">
-                <div *ngIf="DominioSeleccionado!=1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=1">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Administrar los recursos de Azure para el aprendizaje automático.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Administrar los recursos de Azure para el aprendizaje automático.
-                    </div>
-                  </div>
-                </div>
 
-                <div *ngIf="DominioSeleccionado!=3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=3">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img  style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento3.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Implementar y poner en funcionamiento soluciones de aprendizaje automático.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento3.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Implementar y poner en funcionamiento soluciones de aprendizaje automático.
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=2">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Ejecutar experimentos y entrenar modelos.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Ejecutar experimentos y entrenar modelos.
+                <ng-container *ngFor="let item of ListaLogo">
+                  <div *ngIf="DominioSeleccionado!= item.id" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=item.id">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=4">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Implementar aprendizaje automático responsable.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Implementar aprendizaje automático responsable.
+                 
+                  <div *ngIf="DominioSeleccionado == item.id " class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </ng-container>
+               
               </div>
             </div>
           </div>

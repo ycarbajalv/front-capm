@@ -228,8 +228,7 @@
                 [value]="Desempenio">
               </mat-progress-bar>
 
-
-              <div class="row" *ngIf="Desempenio>=70" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
+              <div class="row" *ngIf="Desempenio>=PorcentajeMinimoAprobacion" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
                 <div class="col-md-4 subtitulo">
                   <span>Resultado:</span>
                   <button class="btn btn-block btn-light" style="background: #FAFAFA; border: 1px solid #E4E4E4;margin-left: 12px;" disabled>
@@ -241,7 +240,7 @@
                 </div>
 
               </div>
-              <div class="row" *ngIf="Desempenio<=69" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
+              <div class="row" *ngIf="Desempenio<=PorcentajeMinimoAprobacion" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
                 <div class="col-md-4 subtitulo">
                   <span>Resultado:</span>
                   <button class="btn btn-block btn-light" style="background: #FAFAFA; border: 1px solid #E4E4E4;margin-left: 12px;" disabled>
@@ -253,6 +252,7 @@
                   <span class="text-resultado">¡Ánimo! La siguiente vez lo harás mucho mejor</span>
                 </div>
               </div>
+
               <div class="subtitulo" style="margin-top:15px">
                 Puntaje por habilidad:
               </div>

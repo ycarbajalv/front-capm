@@ -10,6 +10,7 @@ import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 import { SessionStorageService } from 'src/app/shared/Services/session-storage.service';
 import { ResultadoExamenPorDominioDTO } from 'src/app/Models/DominioDTO';
 import { DominioService } from 'src/app/shared/Services/Dominio/dominio.service';
+import { ConfiguracionSimuladorService } from 'src/app/shared/Services/ConfiguracionSimulador/configuracion-simulador.service';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomeComponent implements OnInit {
     private _AvatarService:AvatarService,
     private _ExamenService:ExamenService,
     private _DominioService:DominioService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private _ConfiguracionService: ConfiguracionSimuladorService
   ) { }
   private signal$ = new Subject();
 
@@ -35,6 +37,7 @@ export class HomeComponent implements OnInit {
   public resise=false;
   public NivelUsuario='';
   public SiguienteNivelUsuario=''
+  public listaConfiguracion:any=[]
 
   public urlAvatar='';
   public Avatar: AvatarDTO = {
@@ -99,6 +102,7 @@ export class HomeComponent implements OnInit {
       this.ListaExamenesPorModo();
       this.ObtenerPromedioDominioPorModo();
       this.ListaDominioCombo();
+      this.ObtenerConfiguracionSimulador();
     }
   }
 
@@ -180,7 +184,15 @@ export class HomeComponent implements OnInit {
         this.Dominio=x;
       }
     })
+  }
 
+  ObtenerConfiguracionSimulador(){
+    this._ConfiguracionService.ObtenerConfiguracionSimulador().subscribe({
+      next:(x)=>{
+       this.listaConfiguracion = x
+       console.log(this.listaConfiguracion)
+      }
+    })
   }
 
 }
