@@ -65,7 +65,8 @@ export class ModoEntrenamientoComponent implements OnInit {
     this.ListaExamenesIncompletos();
     this.ListaExamenesConcluidos();
     this.ListaExamenesPorModo();
-    this.ObtenerPromedioDominioPorModo()
+    this.ObtenerPromedioDominioPorModo();
+    this.ObtenerPorcentaje();
   }
   RegistrarExamen(){
     if(this.userForm.valid){
