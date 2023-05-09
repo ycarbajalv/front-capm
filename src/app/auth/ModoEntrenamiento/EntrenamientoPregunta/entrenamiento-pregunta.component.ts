@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RegistroAdsaExamenDetalleDTO } from 'src/app/Models/ExamenDetalleDTO';
-import { RegistroAdsaExamenRespuestaDTO } from 'src/app/Models/ExamenDTO';
+import { RegistroCapmExamenDetalleDTO } from 'src/app/Models/ExamenDetalleDTO';
+import { RegistroCapmExamenRespuestaDTO } from 'src/app/Models/ExamenDTO';
 import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class EntrenamientoPreguntaComponent implements OnInit {
   ) { }
   public migaPan = [
     {
-      titulo: 'Simulador ADSA',
+      titulo: 'Simulador CAPM',
       urlWeb: '/',
     },
     {
@@ -43,9 +43,9 @@ export class EntrenamientoPreguntaComponent implements OnInit {
   public HoraMostrar='';
   public MinutoMostrar='';
   public SegundoMostrar='';
-  public RegistroEnvioRespuesta:RegistroAdsaExamenRespuestaDTO={
+  public RegistroEnvioRespuesta:RegistroCapmExamenRespuestaDTO={
     id:0,
-    idSimuladorAdsaModo:0,
+    idSimuladorCapmModo:0,
     nombreExamen:'',
     tiempo:0,
     idAspNetUsers:'',
@@ -57,14 +57,14 @@ export class EntrenamientoPreguntaComponent implements OnInit {
     respuestaDetalle: [],
     idSimuladorTipoRespuesta:0
   }
-  public DetalleRespuestaEnvio:RegistroAdsaExamenDetalleDTO={
+  public DetalleRespuestaEnvio:RegistroCapmExamenDetalleDTO={
     id:0,
-    idSimuladorAdsaExamen:0,
-    idSimuladorAdsaDominio:0,
-    idSimuladorAdsaTarea:0,
-    idSimuladorAdsaPregunta:0,
+    idSimuladorCapmExamen:0,
+    idSimuladorCapmDominio:0,
+    idSimuladorCapmTarea:0,
+    idSimuladorCapmPregunta:0,
     ejecutado:false,
-    idSimuladorAdsaPreguntaRespuesta:0,
+    idSimuladorCapmPreguntaRespuesta:0,
     puntaje:0,
     idAspNetUsers:'',
     usuario:''
@@ -140,7 +140,7 @@ RegresarMenu(i:number){
 EnviarRespuesta(i:number){
   this.RegistroEnvioRespuesta.respuestaDetalle=[],
     this.RegistroEnvioRespuesta.id=this.IdExamen,
-    this.RegistroEnvioRespuesta.idSimuladorAdsaModo=2,
+    this.RegistroEnvioRespuesta.idSimuladorCapmModo=2,
     this.RegistroEnvioRespuesta.nombreExamen='',
     this.RegistroEnvioRespuesta.tiempo=this.TiempoSegundo,
     this.RegistroEnvioRespuesta.idAspNetUsers='',
@@ -158,12 +158,12 @@ EnviarRespuesta(i:number){
           this.RegistroEnvioRespuesta.estadoExamen=3
         }
         this.RegistroEnvioRespuesta.respuestaDetalle.push({
-          idSimuladorAdsaPreguntaRespuesta:x.id,
+          idSimuladorCapmPreguntaRespuesta:x.id,
           id:this.ListaPreguntas[i].id,
-          idSimuladorAdsaExamen:0,
-          idSimuladorAdsaDominio:0,
-          idSimuladorAdsaTarea:0,
-          idSimuladorAdsaPregunta:this.ListaPreguntas[i].idSimuladorAdsaPregunta,
+          idSimuladorCapmExamen:0,
+          idSimuladorCapmDominio:0,
+          idSimuladorCapmTarea:0,
+          idSimuladorCapmPregunta:this.ListaPreguntas[i].idSimuladorCapmPregunta,
           ejecutado:false,
           puntaje:0,
           idAspNetUsers:'',

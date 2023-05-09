@@ -4,13 +4,14 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { Subject,takeUntil } from 'rxjs';
 import { AvatarDTO } from 'src/app/Models/AvatarDTO';
-import { RegistroAdsaExamenDTO } from 'src/app/Models/ExamenDTO';
+import { RegistroCapmExamenDTO } from 'src/app/Models/ExamenDTO';
 import { AvatarService } from 'src/app/shared/Services/Avatar/avatar.service';
 import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 import { SessionStorageService } from 'src/app/shared/Services/session-storage.service';
 import { ResultadoExamenPorDominioDTO } from 'src/app/Models/DominioDTO';
 import { DominioService } from 'src/app/shared/Services/Dominio/dominio.service';
 import { ConfiguracionSimuladorService } from 'src/app/shared/Services/ConfiguracionSimulador/configuracion-simulador.service';
+import { TareaService } from 'src/app/shared/Services/Tarea/tarea.service';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
     private _ExamenService:ExamenService,
     private _DominioService:DominioService,
     private elementRef: ElementRef,
+    private _TareaService:TareaService,
     private _ConfiguracionService: ConfiguracionSimuladorService
   ) { }
   private signal$ = new Subject();
@@ -56,9 +58,9 @@ export class HomeComponent implements OnInit {
     skin: '',
     topC: ''
   };
-  public MejorExamenEnvio:RegistroAdsaExamenDTO={
+  public MejorExamenEnvio:RegistroCapmExamenDTO={
     id:0,
-    idSimuladorAdsaModo:0,
+    idSimuladorCapmModo:0,
     nombreExamen:'',
     tiempo:0,
     idAspNetUsers:'',
@@ -67,8 +69,8 @@ export class HomeComponent implements OnInit {
     puntaje:0,
     desempenio:0,
     percentil:0,
-    idSimuladorAdsaTarea:0,
-    idSimuladorAdsaDominio:0
+    idSimuladorCapmTarea:0,
+    idSimuladorCapmDominio:0
   }
   public ExamenesCompletados=0;
   public ExamenesActivos=0;
@@ -79,6 +81,7 @@ export class HomeComponent implements OnInit {
   public ListaEntrenamiento:any;
   public ListaExamen:any;
   public token: boolean = this._SessionStorageService.validateTokken();
+  public TareaResultado:any;
   public DominioResultado:any;
   public Examen:any;
   public Puntos=0;
@@ -88,9 +91,15 @@ export class HomeComponent implements OnInit {
   public ResultadoDominio2=0;
   public ResultadoDominio3=0;
   public ResultadoDominio4=0;
+  public ResultadoTarea1=0;
+  public ResultadoTarea2=0;
+  public ResultadoTarea3=0;
+  public ResultadoTarea4=0;
   public ContadorEntrenamiento=0;
   public ResultadosPorDominio:any;
+  public ResultadosPorTarea:any;
   public Dominio:any;
+  public Tarea:any;
   public Take=4;
 
   ngOnInit(): void {
@@ -102,6 +111,7 @@ export class HomeComponent implements OnInit {
       this.ListaExamenesPorModo();
       this.ObtenerPromedioDominioPorModo();
       this.ListaDominioCombo();
+      this.ListaTareaCombo();
       this.ObtenerConfiguracionSimulador();
     }
   }
@@ -119,13 +129,17 @@ export class HomeComponent implements OnInit {
     this._ExamenService.ObtenerMejorExamenPorUsuario().subscribe({
       next:(x)=>{
         if(x!=null){
-          this.DominioResultado=x.dominioResultado;
-        this.ResultadoDominio1=Math.floor(x.dominioResultado[0].desempenio);
-        this.ResultadoDominio2=Math.floor(x.dominioResultado[1].desempenio);
-        this.ResultadoDominio3=Math.floor(x.dominioResultado[2].desempenio);
-        this.ResultadoDominio4=Math.floor(x.dominioResultado[3].desempenio);
+          this.TareaResultado=x.tareaResultado;
+          console.log(this.TareaResultado);
+        this.ResultadoTarea1=Math.floor(x.tareaResultado[0].promedio);
+        this.ResultadoTarea2=Math.floor(x.tareaResultado[1].promedio);
+        this.ResultadoTarea3=Math.floor(x.tareaResultado[2].promedio);
+        this.ResultadoTarea4=Math.floor(x.tareaResultado[3].promedio);
+        
         this.Examen=x.examen;
-        this.Puntos=Math.floor(x.examen.desempenio)
+        this.Puntos=Math.floor(x.examen.desempenio);
+        console.log(this.Puntos)
+
         }
       },
       error:(e)=>{
@@ -184,6 +198,15 @@ export class HomeComponent implements OnInit {
         this.Dominio=x;
       }
     })
+  }
+  
+  ListaTareaCombo(){
+    this._TareaService.ListaTareaCombo().subscribe({
+      next:(x)=>{
+        this.Tarea=x;
+      }
+    })
+
   }
 
   ObtenerConfiguracionSimulador(){

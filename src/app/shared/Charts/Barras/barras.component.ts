@@ -12,10 +12,10 @@ export class BarrasComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   constructor() { }
 
-  @Input() ResultadoDominio1=0;
-  @Input() ResultadoDominio2=0;
-  @Input() ResultadoDominio3=0;
-  @Input() ResultadoDominio4=0;
+  @Input() ResultadoTarea1=0;
+  @Input() ResultadoTarea2=0;
+  @Input() ResultadoTarea3=0;
+  @Input() ResultadoTarea4=0;
 
   public barChartOptions: ChartConfiguration['options'] = {};
   public barChartType: ChartType = 'bar';
@@ -39,16 +39,16 @@ export class BarrasComponent implements OnInit {
     ]
   };
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.ResultadoDominio1!=0 ||
-      this.ResultadoDominio2!=0 ||
-      this.ResultadoDominio3!=0 ||
-      this.ResultadoDominio4!=0 ){
+    if(this.ResultadoTarea1!=0 ||
+      this.ResultadoTarea2!=0 ||
+      this.ResultadoTarea3!=0 ||
+      this.ResultadoTarea4!=0 ){
       this.ValoresChart()
     }
-    if(this.ResultadoDominio1==0 &&
-      this.ResultadoDominio2==0 &&
-      this.ResultadoDominio3==0 &&
-      this.ResultadoDominio4==0){
+    if(this.ResultadoTarea1==0 &&
+      this.ResultadoTarea2==0 &&
+      this.ResultadoTarea3==0 &&
+      this.ResultadoTarea4==0){
       this.ValoresChartInicio()
     }
   }
@@ -74,12 +74,12 @@ export class BarrasComponent implements OnInit {
     }
     //Datos
     this.barChartData={
-      labels: [ 'H1', 'H2', 'H3', 'H4'],
+      labels: [ '0A1', '0A2', '0A3', '0A4'],
       datasets: [
-        { data: [ this.ResultadoDominio1,
-          this.ResultadoDominio2,
-          this.ResultadoDominio3,
-          this.ResultadoDominio4],
+        { data: [ this.ResultadoTarea1,
+          this.ResultadoTarea2,
+          this.ResultadoTarea3,
+          this.ResultadoTarea4],
           label: 'Puntaje (%)',
           backgroundColor: '#00C356',
           hoverBackgroundColor:[
@@ -117,7 +117,7 @@ export class BarrasComponent implements OnInit {
     }
     //Datos
     this.barChartData={
-      labels: [ 'H1', 'H2', 'H3', 'H4'],
+      labels: [ '0A', '0A', 'OA', 'OA'],
       datasets: [
         { data: [ 0, 0, 0, 0],
           label: 'Puntaje',

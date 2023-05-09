@@ -17,7 +17,7 @@ export class EstudioRespuestaPreguntaComponent implements OnInit {
   ) { }
   public migaPan = [
     {
-      titulo: 'Simulador ADSA',
+      titulo: 'Simulador CAPM',
       urlWeb: '/',
     },
     {

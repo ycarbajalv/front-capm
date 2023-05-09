@@ -18,7 +18,7 @@ export class EstudioReporteComponent implements OnInit {
   ) { }
   public migaPan = [
     {
-      titulo: 'Simulador ADSA',
+      titulo: 'Simulador CAPM',
       urlWeb: '/',
     },
     {
@@ -26,6 +26,7 @@ export class EstudioReporteComponent implements OnInit {
       urlWeb: '/ModoEstudio',
     },
   ];
+  public TareaResultado:any;
   public DominioResultado:any;
   public Examen:any;
   public NombreExamen='';
@@ -54,6 +55,8 @@ export class EstudioReporteComponent implements OnInit {
     this._ExamenService.ObtenerExamenReporteResultadosPorId(this.IdExamen).subscribe({
       next:(x)=>{
         this.DominioResultado=x.dominioResultado[0];
+        this.TareaResultado=x.dominioResultado[0].tareaResultado[0].nombre;
+        console.log(this.TareaResultado)
         this.Examen=x.examen;
         this.NombreExamen=x.examen.nombreExamen;
         this.TiempoTotalEstudio=x.examen.tiempo;

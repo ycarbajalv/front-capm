@@ -26,7 +26,7 @@
     </div>
     <div *ngIf="ContExamenIncompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesIncompletas">
-        <div  *ngIf="item.idSimuladorAdsaModo==3" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px;padding-bottom: 25px;">
+        <div  *ngIf="item.idSimuladorCapmModo==3" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px;padding-bottom: 25px;">
           <div class="row" style="margin-top: 20px;margin-left: 0px; color: #4a4a49; margin-bottom: 10px;">
             <div class="col-8">
               <div>
@@ -65,7 +65,7 @@
     </div>
     <div *ngIf="ContEntrenamientoIncompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesIncompletas">
-        <div *ngIf="item.idSimuladorAdsaModo==2" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px;padding-bottom: 25px;" >
+        <div *ngIf="item.idSimuladorCapmModo==2" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px;padding-bottom: 25px;" >
           <div class="row" style="margin-top: 20px;margin-left: 0px; color: #4a4a49;">
             <div class="col-8">
               <div>
@@ -104,7 +104,7 @@
     </div>
     <div *ngIf="ContEstudioIncompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesIncompletas">
-        <div  *ngIf="item.idSimuladorAdsaModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px; padding-bottom: 25px;">
+        <div  *ngIf="item.idSimuladorCapmModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;margin-bottom: 20px; padding-bottom: 25px;">
           <div class="row" style="margin-top: 20px;margin-left: 0px; color: #4a4a49;">
             <div class="col-8">
               <div>

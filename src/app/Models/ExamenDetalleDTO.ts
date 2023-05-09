@@ -1,11 +1,11 @@
-export interface RegistroAdsaExamenDetalleDTO{
+export interface RegistroCapmExamenDetalleDTO{
   id:number,
-  idSimuladorAdsaExamen:number,
-  idSimuladorAdsaDominio:number,
-  idSimuladorAdsaTarea?:number,
-  idSimuladorAdsaPregunta:number,
+  idSimuladorCapmExamen:number,
+  idSimuladorCapmDominio:number,
+  idSimuladorCapmTarea?:number,
+  idSimuladorCapmPregunta:number,
   ejecutado:boolean,
-  idSimuladorAdsaPreguntaRespuesta?:number,
+  idSimuladorCapmPreguntaRespuesta?:number,
   puntaje?:number,
   idAspNetUsers:string,
   usuario:string

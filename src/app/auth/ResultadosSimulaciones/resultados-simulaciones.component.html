@@ -26,7 +26,7 @@
     </div>
     <div *ngIf="ContExamenCompleto!=0"  class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesCompletadas">
-        <div *ngIf="item.idSimuladorAdsaModo==3">
+        <div *ngIf="item.idSimuladorCapmModo==3">
           <div class="row" style="justify-content: space-between; margin-bottom: 10px;">
           <div class="col-md-12" style="border-bottom: 1px solid #E4E4E4; padding-bottom: 20px;">
             <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
@@ -81,7 +81,7 @@
     </div>
     <div *ngIf="ContEntrenamientoCompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesCompletadas">
-        <div *ngIf="item.idSimuladorAdsaModo==2">
+        <div *ngIf="item.idSimuladorCapmModo==2">
           <div class="row" style="justify-content: space-between;">
           <div class="col-md-12" style="border-bottom: 1px solid #E4E4E4; padding-bottom: 20px;">
             <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">
@@ -136,7 +136,7 @@
     </div>
     <div *ngIf="ContEstudioCompleto!=0" class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
       <ng-container *ngFor="let item of SimulacionesCompletadas">
-        <div *ngIf="item.idSimuladorAdsaModo==1">
+        <div *ngIf="item.idSimuladorCapmModo==1">
           <div class="row" style="justify-content: space-between;">
           <div class="col-md-12" style="border-bottom: 1px solid #E4E4E4; padding-bottom: 20px;">
             <div class="row rowExpanded" style="justify-content: space-around;margin-top: 20px;">

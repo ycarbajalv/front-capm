@@ -146,7 +146,7 @@
               <h2 class="titulo">Modo Examen</h2>
           </div>
           <p style="padding-top: 12px; padding-bottom: 10px;">
-            En este modo se simulan todas las condiciones del examen de certificación Microsoft Certified: Azure Data Scientist Associate DP-100, como el tiempo del examen y la cantidad de preguntas. Este modo también suma puntaje reflejado en el nivel de cada usuario.
+            Este modo es donde se simulará todas las condiciones del examen de certificación CAPM, como el tiempo del examen y la cantidad de preguntas. Este modo también suma puntaje reflejado en el nivel de cada usuario.
           </p>
       </div>
       <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
@@ -172,19 +172,19 @@
                 </div>
                 <div>
                   <app-barras
-                    [ResultadoDominio1]="ResultadoDominio1"
-                    [ResultadoDominio2]="ResultadoDominio2"
-                    [ResultadoDominio3]="ResultadoDominio3"
-                    [ResultadoDominio4]="ResultadoDominio4">
+                  [ResultadoTarea1]="ResultadoTarea1"
+                  [ResultadoTarea2]="ResultadoTarea2"
+                  [ResultadoTarea3]="ResultadoTarea3"
+                  [ResultadoTarea4]="ResultadoTarea4">
                   </app-barras>
                 </div>
                 <br>
                 <div class="subtitulo">
                   Leyenda:
                 </div>
-                <ng-container *ngFor="let item of Dominio">
-                  <div class="item-leyenda-barras">
-                    <b>{{item.leyenda}}:</b> {{item.nombre}}.
+                <ng-container *ngFor="let item of TareaResultado">
+                  <div class="">
+                    <b>OA :</b> {{item.nombreTarea}}.
                   </div>
                 </ng-container>
 
@@ -216,7 +216,7 @@
               <h2 class="titulo">Modo Entrenamiento</h2>
           </div>
           <p style="padding-top: 12px; padding-bottom: 10px;">
-            En este modo se presentarán 60 preguntas, como en el examen de certificación. Además luego de responder cada pregunta se te brindará retroalimentación para poder corroborar tus respuestas de forma inmediata.
+            En este modo se te presentará 150 preguntas como en el examen de certificación. Además luego de responder cada pregunta se te brindará retroalimentación para poder corroborar tus respuestas de forma inmediata.
           </p>
       </div>
       <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
@@ -264,12 +264,12 @@
               <h2 class="titulo">Modo Estudio</h2>
           </div>
           <p style="padding-top: 12px; padding-bottom: 10px;">
-            En este modo podrás estudiar de forma personalizada cada una de las habilidades que componen el examen de certificación Microsoft Certified: Azure Data Scientist Associate DP-100.
+            En este modo podrás estudiar de forma personalizada cada una de los objetivos de aprendizaje en los que se divide el examen de certificación CAPM.
           </p>
       </div>
       <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
           <div style="margin-bottom:15px">
-            <span class="subtitulo" >Habilidades con mejor puntaje:</span><br />
+            <span class="subtitulo" >Objetivos de Aprendizaje con mejor puntaje:</span><br />
           </div>
             <div *ngIf="ResultadosPorDominio!=undefined">
               <ng-container *ngFor="let itemDominios of ResultadosPorDominio" >
@@ -278,7 +278,7 @@
                     <mat-progress-bar mode="determinate" style="height: 10px;"
                       [value]="itemDominios.promedio">
                     </mat-progress-bar>
-                    <p><b style="color:#786565">Habilidad {{itemDominios.id}}: </b> <span>{{itemDominios.nombre}}</span></p>
+                    <p><b style="color:#786565">Objetivo de Aprendizaje {{itemDominios.id}}: </b> <span>{{itemDominios.nombre}}</span></p>
                 </div>
                 <div class="col-1">
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{itemDominios.promedio}}%</h5>

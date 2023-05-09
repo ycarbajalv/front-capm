@@ -89,46 +89,269 @@
         Instrucciones:
       </div>
       <div>
-        En este modo podrás estudiar de forma individual cada una de las habilidades que componen el examen, en todas las preguntas se te brindará retroalimentación para verificar tus respuestas y fortalecer tus conocimientos
+        En este modo podrás estudiar de forma personalizada cada uno de los objetivos de aprendizaje en los que se divide en examen, además en todas las preguntas se te brindará retroalimentación para verificar tus respuestas y fortalecer tus conocimientos.
       </div>
+      
       <form (submit)="RegistrarExamen()" [formGroup]="userForm">
         <div class="form-horizontal" id="form-crearExamen">
           <div class="row">
             <div class="col-md-12" style="padding-bottom: 20px;">
               <div class="subtitulo" style="margin-top: 20px;margin-bottom: 3px;">
-                Selecciona la habilidad que deseas estudiar:
+                Seleccione el resultado del aprendizaje que desea estudiar:
+              </div>
+              
+
+              <div class="row">
+                <div *ngIf="TareaSeleccionado!=1" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=1">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="https://repositorioweb.blob.core.windows.net/repositorioweb/simulador/itil/imagenes/OA1.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                      1 - Introducción a Administración de Proyectos                    </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==1" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento1.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                      1 - Introducción a Administración de Proyectos                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=2" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=2">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento2.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      2 - Entorno del proyecto                    </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==2" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento2.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      2 - Entorno del proyecto
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=3" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=3">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="https://repositorioweb.blob.core.windows.net/repositorioweb/simulador/itil/imagenes/OA1.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                      3 - Rol del director de proyectos                   </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==3" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento1.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                      3 - Rol del director de proyectos                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=4" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=4">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="https://repositorioweb.blob.core.windows.net/repositorioweb/simulador/itil/imagenes/OA1.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                      4 - Gestión de la integración del proyecto                 </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==4" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento1.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                      4 - Gestión de la integración del proyecto </div> </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=5" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=5">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      5 - Gestión del alcance del proyecto                    </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==5" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      5 - Gestión del alcance del proyecto                   </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=6" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=6">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      6 - Gestión del cronograma del proyecto                 </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==6" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      6 - Gestión del cronograma del proyecto                  </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=7" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=7">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      7 - Gestión del costo del proyecto                  </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==7" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      7 - Gestión del costo del proyecto                 </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=8" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=8">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      8 - Gestión de calidad del proyecto                 </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==8" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      8 - Gestión de calidad del proyecto                </div>
+                  </div>
+                </div>
               </div>
               <div class="row">
-
-
-                <ng-container *ngFor="let item of ListaLogo">
-                  <div *ngIf="DominioSeleccionado!= item.id" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=item.id">
-                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
-                      <div class="col-md-2" style="display: flex; justify-content: center;">
-                        <img style="height: 50px;" src={{item.imgLogo}}>
-                      </div>
-                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                        {{item.nombre}}
-                      </div>
+                <div *ngIf="TareaSeleccionado!=9" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=9">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
                     </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      9 - Gestión de recursos del proyecto                 </div>
                   </div>
-                 
-                  <div *ngIf="DominioSeleccionado == item.id " class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
-                      <div class="col-md-2" style="display: flex; justify-content: center;">
-                        <img style="height: 50px;" src={{item.imgLogo}}>
-                      </div>
-                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                        {{item.nombre}}
-                      </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==9" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
                     </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      9 - Gestión de recursos del proyecto                </div>
                   </div>
-                </ng-container>
-               
+                </div>
+
+                
+                <div *ngIf="TareaSeleccionado!=10" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=10">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      10 - Gestión de la comunicación del proyecto                 </div>
+                  </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==10" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      10 - Gestión de la comunicación del proyecto                </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=11" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=11">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      11 - Gestión de riesgos del proyecto </div> </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==11" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      11 - Gestión de riesgos del proyecto               </div>
+                  </div>
+                </div>
+
+                
+                <div *ngIf="TareaSeleccionado!=12" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=12">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      12 - Gestión de contrataciones del proyecto </div> </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==12" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      12 - Gestión de contrataciones del proyecto               </div>
+                  </div>
+                </div>
+
+                <div *ngIf="TareaSeleccionado!=13" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=13">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      13 - Gestión de interesados del proyecto </div> </div>
+                </div>
+                <div *ngIf="TareaSeleccionado==13" class="col-12 col-md-6 CardsDominio" (click)="TareaSeleccionado=0">
+                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                    <div class="col-md-2" style="display: flex; justify-content: center;">
+                      <img style="height: 50px;" src="../../../assets/iconos/MC-ADSA-Tento4.svg">
+                    </div>
+                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
+                      13 - Gestión de interesados del proyecto             </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            
           </div>
-          <mat-error *ngIf="!userForm.invalid && DominioSeleccionado==0">Debe seleccionar una habilidad para la simulación</mat-error>
+          <mat-error *ngIf="!userForm.invalid && TareaSeleccionado==0">Debe seleccionar una habilidad para la simulación</mat-error>
           <div class="row">
             <div class="col-md-12" style="margin-top: 10px ">
               <div class="subtitulo">Nombre de la simulación:</div>
@@ -138,7 +361,8 @@
               </mat-form-field>
               </div>
             </div>
-          </div>
+        </div>
+        </div>
           <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -163,7 +387,7 @@
         <div *ngIf="ContSimulacionesCompletadas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px;">
             <ng-container *ngFor="let item of SimulacionesCompletadas">
-              <div  *ngIf="item.idSimuladorAdsaModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
+              <div  *ngIf="item.idSimuladorCapmModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-md-4">
                     <div style="padding-top: 10px; padding-bottom: 10px;">
@@ -219,7 +443,7 @@
         <div *ngIf="ContSimulacionesIncompletas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px; ">
             <ng-container *ngFor="let item of SimulacionesIncompletas">
-              <div  *ngIf="item.idSimuladorAdsaModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
+              <div  *ngIf="item.idSimuladorCapmModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;margin-bottom: 15px;">
                   <div class="col-md-6">
                     <div>
