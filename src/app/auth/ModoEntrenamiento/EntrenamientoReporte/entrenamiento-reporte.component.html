@@ -254,23 +254,23 @@
               </div>
 
               <div class="subtitulo" style="margin-top:15px">
-                Puntaje por habilidad:
+                Puntaje por objetivo:
               </div>
               <div class="row " style=" align-items: center;margin-top: 30px;">
-                <ng-container *ngFor="let item of EntrenamientoResultado;let i=index">
+                <ng-container *ngFor="let item of PromedioTareas;let i=index">
                   <div style="margin-bottom:25px">
                     <div class="col-12 " style="margin-bottom:5px;font-size: 14px; color: #4a4a49;">
-                      <b>Habilidad {{i+1}}: </b>
-                      <span style="color: #868685;">{{item.nombre}}</span>
+                      <b>Tarea: </b>
+                      <span style="color: #868685;">{{item.nombreTarea}}</span>
                     </div>
                     <div class="row">
                       <div class="col-8 col-sm-10">
                         <mat-progress-bar mode="determinate" style="height: 10px;"
-                          [value]="item.desempenio">
+                          [value]="item.promedio">
                         </mat-progress-bar>
                       </div>
                     <div class="col-2 numeroReporte">
-                      {{item.desempenio|number:'1.0-0'}}%
+                      {{item.promedio|number:'1.0-0'}}%
                     </div>
                     </div>
                   </div>

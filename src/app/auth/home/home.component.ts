@@ -135,12 +135,19 @@ export class HomeComponent implements OnInit {
         this.ResultadoTarea2=Math.floor(x.tareaResultado[1].promedio);
         this.ResultadoTarea3=Math.floor(x.tareaResultado[2].promedio);
         this.ResultadoTarea4=Math.floor(x.tareaResultado[3].promedio);
-        
+
         this.Examen=x.examen;
         this.Puntos=Math.floor(x.examen.desempenio);
         console.log(this.Puntos)
 
         }
+        console.log(this.TareaResultado)
+        this.TareaResultado.forEach((x:any) => {
+          let NumTarea = x.nombreTarea.split(' - ')
+          x.ordenTarea=NumTarea[0]
+          x.nombreTareaFinal=NumTarea[1]
+
+        });
       },
       error:(e)=>{
         this.ExamenesCompletados=0
@@ -199,7 +206,7 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-  
+
   ListaTareaCombo(){
     this._TareaService.ListaTareaCombo().subscribe({
       next:(x)=>{

@@ -52,7 +52,7 @@ export class ModoEstudioComponent implements OnInit {
   public SimulacionesInconclusas=0;
   public CantMEstudio=0;
   public ListaEstudio:any;
-  public ListaLogo: any = []
+  public ListaLogo: any;
   public TiempoTotalEstudio=0;
   public Hora=0;
   public Minuto=0;
@@ -67,14 +67,15 @@ export class ModoEstudioComponent implements OnInit {
   public BotonResgistrar=false;
   public Take=0;
 
+
   ngOnInit(): void {
+    this.ObtenerLogo();
     this.ListaDominioCombo();
     this.ListaTareaCombo();
     this.ListaExamenesPorModo();
     this.ListaExamenesIncompletos();
     this.ListaExamenesConcluidos();
     this.ObtenerPromedioDominioPorModo();
-    // this.ObtenerLogo();
   }
 
   RegistrarExamen(){
@@ -113,14 +114,14 @@ export class ModoEstudioComponent implements OnInit {
 
   }
 
-  // ObtenerLogo(){
-  //   this._DominioService.ObtenerLogo().subscribe({
-  //     next:(x)=>{
-  //       this.ListaLogo = x;
-  //       console.log(this.ListaLogo)
-  //     }
-  //   })
-  // }
+  ObtenerLogo(){
+    this._DominioService.ObtenerLogo().subscribe({
+      next:(x)=>{
+        this.ListaLogo = x;
+        console.log(this.ListaLogo)
+      }
+    })
+  }
 
 
 

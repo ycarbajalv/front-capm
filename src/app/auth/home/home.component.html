@@ -168,7 +168,7 @@
               </div>
               <div class="col-md-6">
                 <div class="subtitulo" >
-                  Puntaje por habilidades:
+                  Puntaje por objetivos:
                 </div>
                 <div>
                   <app-barras
@@ -184,7 +184,7 @@
                 </div>
                 <ng-container *ngFor="let item of TareaResultado">
                   <div class="">
-                    <b>OA :</b> {{item.nombreTarea}}.
+                    <b>OA {{item.ordenTarea}}:</b> {{item.nombreTareaFinal}}.
                   </div>
                 </ng-container>
 
@@ -278,7 +278,7 @@
                     <mat-progress-bar mode="determinate" style="height: 10px;"
                       [value]="itemDominios.promedio">
                     </mat-progress-bar>
-                    <p><b style="color:#786565">Objetivo de Aprendizaje {{itemDominios.id}}: </b> <span>{{itemDominios.nombre}}</span></p>
+                    <p><b style="color:#786565">Objetivo de Aprendizaje: </b> <span>{{itemDominios.nombre}}</span></p>
                 </div>
                 <div class="col-1">
                     <h5 style="color: #0684f2; white-space: nowrap; font-weight: 800 ">{{itemDominios.promedio}}%</h5>
@@ -312,8 +312,8 @@
   </div>
   <br />
     <!-- Instrucciones del simulador -->
-    <ng-container *ngIf="listaConfiguracion.urlVideo != null && listaConfiguracion.urlVideo != '' && listaConfiguracion.urlVideo != undefined"> 
-      
+    <ng-container *ngIf="listaConfiguracion.urlVideo != null && listaConfiguracion.urlVideo != '' && listaConfiguracion.urlVideo != undefined">
+
       <br />
       <div class="card" style="padding:30px;border-radius:20px;">
         <div class="card-body" style="border-radius: 20px 20px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
@@ -329,6 +329,5 @@
       </div>
     </div>
     <br>
-  
   </ng-container>
 </div>

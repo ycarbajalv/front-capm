@@ -40,6 +40,7 @@ export class EntrenamientoReporteComponent implements OnInit {
   public Percentil=0;
   public Desempenio=0;
   public PorcentajeMinimoAprobacion = 0;
+  public PromedioTareas:any;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -52,7 +53,10 @@ export class EntrenamientoReporteComponent implements OnInit {
   ObtenerExamenReporteResultadosPorId(){
     this._ExamenService.ObtenerExamenReporteResultadosPorId(this.IdExamen).subscribe({
       next:(x)=>{
+        console.log(x)
         this.EntrenamientoResultado=x.dominioResultado;
+        this.PromedioTareas=x.tareaResultado;
+        console.log(this.PromedioTareas)
         this.Examen=x.examen;
         this.NombreExamen=x.examen.nombreExamen;
         this.TiempoTotalEstudio=x.examen.tiempo;
