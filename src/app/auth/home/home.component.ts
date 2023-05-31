@@ -130,7 +130,6 @@ export class HomeComponent implements OnInit {
       next:(x)=>{
         if(x!=null){
           this.TareaResultado=x.tareaResultado;
-          console.log(this.TareaResultado);
         this.ResultadoTarea1=Math.floor(x.tareaResultado[0].promedio);
         this.ResultadoTarea2=Math.floor(x.tareaResultado[1].promedio);
         this.ResultadoTarea3=Math.floor(x.tareaResultado[2].promedio);
@@ -138,16 +137,15 @@ export class HomeComponent implements OnInit {
 
         this.Examen=x.examen;
         this.Puntos=Math.floor(x.examen.desempenio);
-        console.log(this.Puntos)
-
-        }
-        console.log(this.TareaResultado)
         this.TareaResultado.forEach((x:any) => {
           let NumTarea = x.nombreTarea.split(' - ')
           x.ordenTarea=NumTarea[0]
           x.nombreTareaFinal=NumTarea[1]
 
         });
+
+        }
+
       },
       error:(e)=>{
         this.ExamenesCompletados=0
@@ -193,7 +191,6 @@ export class HomeComponent implements OnInit {
     this._ExamenService.ObtenerPromedioDominioPorModo(1,this.Take).subscribe({
       next:(x)=>{
         if(x!=null){
-          console.log(x)
           this.ResultadosPorDominio=x
         }
       }
@@ -211,6 +208,13 @@ export class HomeComponent implements OnInit {
     this._TareaService.ListaTareaCombo().subscribe({
       next:(x)=>{
         this.Tarea=x;
+        this.Tarea.forEach((x:any) => {
+          let NumTarea = x.nombre.split(' - ')
+          x.ordenTarea=NumTarea[0]
+          x.nombreTareaFinal=NumTarea[1]
+
+        });
+
       }
     })
 
@@ -220,7 +224,6 @@ export class HomeComponent implements OnInit {
     this._ConfiguracionService.ObtenerConfiguracionSimulador().subscribe({
       next:(x)=>{
        this.listaConfiguracion = x
-       console.log(this.listaConfiguracion)
       }
     })
   }
